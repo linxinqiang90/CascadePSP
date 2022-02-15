@@ -117,3 +117,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/tmp_download_files/

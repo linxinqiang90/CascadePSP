@@ -2,22 +2,22 @@ import os
 from shutil import copyfile, copytree
 import glob
 
-os.system("rm -r ../tmp_download_files")
+# os.system("rm -r ../tmp_download_files")
 
 os.makedirs("../tmp_download_files", exist_ok=True)
 
 # MSRA10K
-os.system("wget -P ../tmp_download_files http://mftp.mmcheng.net/Data/MSRA10K_Imgs_GT.zip")
+# os.system("wget -P ../tmp_download_files http://mftp.mmcheng.net/Data/MSRA10K_Imgs_GT.zip")
 # ECSSD_url
 os.system(
     "wget -P ../tmp_download_files http://www.cse.cuhk.edu.hk/leojia/projects/hsaliency/data/ECSSD/ground_truth_mask.zip")
 os.system("wget -P ../tmp_download_files http://www.cse.cuhk.edu.hk/leojia/projects/hsaliency/data/ECSSD/images.zip")
 # FSS1000
-os.system(
-    "wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=16TgqOeI_0P41Eh3jWQlxlRXG9KIqtMgI' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p')&id=16TgqOeI_0P41Eh3jWQlxlRXG9KIqtMgI\" -O ../tmp_download_files/fewshot_data.zip && rm -rf /tmp/cookies.txt")
+# os.system(
+#     "wget --load-cookies /tmp/cookies.txt \"https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=16TgqOeI_0P41Eh3jWQlxlRXG9KIqtMgI' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p')&id=16TgqOeI_0P41Eh3jWQlxlRXG9KIqtMgI\" -O ../tmp_download_files/fewshot_data.zip && rm -rf /tmp/cookies.txt")
 # DUT-OMRON ========== Link is not working???
-os.system("wget -P ../tmp_download_files http://saliencydetection.net/duts/download/DUTS-TR.zip")
-os.system("wget -P ../tmp_download_files http://saliencydetection.net/duts/download/DUTS-TE.zip")
+# os.system("wget -P ../tmp_download_files http://saliencydetection.net/duts/download/DUTS-TR.zip")
+# os.system("wget -P ../tmp_download_files http://saliencydetection.net/duts/download/DUTS-TE.zip")
 
 # Unzip everything
 os.system("unzip ../tmp_download_files/MSRA10K_Imgs_GT.zip -d ../tmp_download_files")
@@ -54,4 +54,4 @@ for gt in glob.glob("../tmp_download_files/MSRA10K_Imgs_GT/Imgs/*"):
     copyfile(gt, "../data/MSRA_10K/{}".format(os.path.basename(gt)))
 
 # Deleted temp files
-os.system("rm -r ../tmp_download_files")
+# os.system("rm -r ../tmp_download_files")
